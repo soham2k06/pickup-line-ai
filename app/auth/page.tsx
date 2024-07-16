@@ -11,10 +11,11 @@ function Auth() {
   const [pending, setPending] = useState(false);
 
   const handleLogin = async () => {
+    const baseurl = process.env.NEXT_PUBLIC_BASE_URL;
     setPending(true);
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${location.origin}/auth/callback` },
+      options: { redirectTo: `${baseurl}/auth/callback` },
     });
     setPending(false);
   };
