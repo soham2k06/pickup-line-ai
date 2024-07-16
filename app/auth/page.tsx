@@ -12,6 +12,7 @@ function Auth() {
 
   const handleLogin = async () => {
     const baseurl = process.env.NEXT_PUBLIC_BASE_URL;
+    console.log(baseurl);
     setPending(true);
     await supabase.auth.signInWithOAuth({
       provider: "google",
